@@ -1,0 +1,38 @@
+2) IDE: Eclipse & JAVA: 8
+
+Criei um projeto maven no Eclipse, coloquei as dependências no arquivo pom.xml para obter as biblliotecas que eu iria precisar
+para desenvolvimento do projeto, depois confiugrei o  web.xml dentro da pasta webapp/WEB-INF do projeto, depois criei o arquivo applicationContext.xml
+e o configurei, dentro vai as configuraçoes de integração do spring e Hibernate, as packages para escanear e depois criei o arquivo SpringMVC-servlet.xml para especificar onde está meus views,
+a extensão das páginas e etc.
+Criei uma pasta views dentro do webapp/WEB-INF para minhas páginas web e outra pasta dentro do src/main chamada java para 
+as classes do projeto.
+
+3) Então como usei Maven + spring mvc + Hibernate, tenho um controller que faz a gerência das requisições web, mapei os URLs para as requisições de cadastro e seleção, uma classe de serviço para fornecer serviços,
+e a classe dao que é Repository e enfim o model que é a classe User. Cada classe em seu package específico.
+
+
+Como Rodar o projeto******
+Depois da importação no seu IDE, melhor em eclipse. Dar Right Click no nome do projeto/Maven/Update Project para que o maven 
+pode baixar as dependências necessárias para o projeto, depois Right Click no seu servidor web/Add Or Remove, para adicionar
+o projeto no servidor porque é web, usei tomcat.
+Depois de adicionar o projeto no servidor, Right Click no nome do projeto/Run As/Run on Server
+À seguir são os links para requisições de cadastro de user, de listar todos os users e de pesquisar user pelo ID ou Email 
+ou Username:
+Listar Users: http://localhost:8080/DesafioUser/list
+Cadastro de Users : http://localhost:8080/DesafioUser/form
+Pesquisar User : http://localhost:8080/DesafioUser/searchUser
+
+***É necessário cadastrar user antes de pesquisar porque não estou capturando as exeções***
+
+4)
+A primeira coisa que sei que não foi a forma mais adequada fazer é a pesquisa de Users, coloquei 3 input na tela e o
+usuário final somente vai prencher um campo, melhor seria um input e tratar os paramêtro passado no controller para saber se 
+o campo prenchido foi email ou id ou username. O meu códido poderia ser melhor, a estrutura.
+Na classe User eu podia usar @NamedQuery para específicar todas as requisições que precisarei para contato com o banco.
+Outra coisa, não usei inteface para cada classe, isso é uma boa prática mas é por falta de tempo causa do natal,
+o tempo é mais com a família.
+Pontos fortes, não instanciei classes para não gastar memória, com @Autowired faço injeção de dependêcia que isso também é boa
+prática, criei o nome dos métodos com o nome da ação a ser realizada caso qualquer pessoa pode ver o que está acontecendo.
+
+OBS: No arquivo applicationContext.xml deve mudar o nome do usuário de acesso ao banco de dados se não é root e da senha, caso teu banco não tem senha de acesso
+deixa sem.

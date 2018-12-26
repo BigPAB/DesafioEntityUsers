@@ -1,0 +1,31 @@
+Drop Database usersDatabase if exists;
+
+
+create DATABASE usersDatabase;
+
+Create Table users(
+
+      id_user tinyint auto_increment,
+
+      username varchar(15) UNIQUE,
+
+      user_password varchar(20),
+
+      is_enabled boolean,
+
+      register_date date,
+
+      name varchar(20),
+
+      surname varchar(20),
+
+      email varchar(20) UNIQUE,
+
+      phone varchar(15),
+
+      Primary Key (id_user)
+
+)
+
+
+
